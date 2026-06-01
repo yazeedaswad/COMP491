@@ -1,0 +1,35 @@
+experiment:
+  name: nsl_kdd_cnn_transformer
+  seed: 42
+  task: multiclass
+
+data:
+  csv_path: data/raw/nsl_kdd.csv
+  label_column: label
+  test_size: 0.2
+  val_size: 0.1
+  categorical_columns: []
+  drop_columns: []
+
+model:
+  input_dim: null
+  num_classes: null
+  cnn_channels: 64
+  transformer_dim: 64
+  transformer_layers: 2
+  attention_heads: 4
+  dropout: 0.2
+
+training:
+  epochs: 20
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  loss: focal
+  focal_gamma: 2.0
+  class_weighting: balanced
+  device: auto
+
+outputs:
+  run_dir: reports/runs/nsl_kdd_cnn_transformer
+

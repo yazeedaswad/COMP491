@@ -1,0 +1,29 @@
+experiment:
+  name: unsw_nb15_cnn_bilstm_baseline
+  seed: 42
+  task: multiclass
+
+data:
+  processed_npz_path: data/processed/unsw_nb15_multiclass.npz
+
+model:
+  name: cnn_bilstm
+  input_dim: null
+  num_classes: null
+  cnn_channels: 64
+  lstm_hidden_dim: 64
+  lstm_layers: 1
+  dropout: 0.2
+
+training:
+  epochs: 20
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  loss: weighted_cross_entropy
+  class_weighting: balanced
+  device: auto
+
+outputs:
+  run_dir: reports/runs/unsw_nb15_cnn_bilstm_baseline
+
